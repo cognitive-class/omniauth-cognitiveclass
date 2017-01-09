@@ -26,16 +26,16 @@ require "omniauth-oauth2"
 
 module OmniAuth
   module Strategies
-    class BDU < OmniAuth::Strategies::OAuth2
+    class Bdu < OmniAuth::Strategies::OAuth2
       # Give your strategy a name.
       option :name, "bdu"
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.
       option :client_options,
-        site: "https://courses.bigdatauniversity.com/",
+        site:          "https://courses.bigdatauniversity.com/",
         authorize_url: "https://courses.bigdatauniversity.com/oauth2/authorize",
-        token_url: "https://courses.bigdatauniversity.com/oauth2/access_token"
+        token_url:     "https://courses.bigdatauniversity.com/oauth2/access_token"
 
       # These are called after authentication has succeeded. If
       # possible, you should try to set the UID without making

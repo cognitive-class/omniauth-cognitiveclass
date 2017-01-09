@@ -1,13 +1,16 @@
 PATH
   remote: .
   specs:
-    dswb-error_handler (0.1.0)
+    omniauth-bdu (0.2.0)
       omniauth-oauth2 (~> 1.4)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.3.0)
+    bundler-audit (0.5.0)
+      bundler (~> 1.2)
+      thor (~> 0.18)
     diff-lcs (1.2.5)
     docile (1.1.5)
     faraday (0.10.1)
@@ -61,13 +64,15 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    thor (0.19.4)
     unicode-display_width (1.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  dswb-error_handler!
+  bundler-audit (~> 0.5)
+  omniauth-bdu!
   rake (~> 12.0)
   rspec (~> 3.4)
   rubocop (~> 0.46)

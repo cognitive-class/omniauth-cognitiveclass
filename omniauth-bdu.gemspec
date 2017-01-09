@@ -20,6 +20,8 @@ Gem::Specification.new do |spec|
 
   # To install the gem locally:
   # bundle exec rake install
+  spec.add_development_dependency "bundler-audit", "~> 0.5"
+
   spec.add_development_dependency "rake", "~> 12.0"
 
   # Unit tests
