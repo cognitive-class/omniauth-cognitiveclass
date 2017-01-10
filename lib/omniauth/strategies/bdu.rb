@@ -1,29 +1,5 @@
 require "omniauth-oauth2"
 
-# def make_bdu(app, name, auth_config, success=None, failure=None):
-#   '''
-#     Enables authentication using BDU.
-#     '''
-#   config = dict(auth_config)
-#   config['request_token_url']    = None
-#   config['access_token_method']  = 'POST'
-#   config['access_token_url']     = '/oauth2/access_token'
-#   config['authorize_url']        = '/oauth2/authorize'
-#   config['request_token_params'] = {'scope': 'openid profile email'}
-#
-#   def _success(resp, auth):
-#     session['auth_token'] = (resp['access_token'], '')
-#     # fetch public profile
-#     user_info = auth.get('/oauth2/user_info').data
-#     email     = user_info['email']
-#
-#     if callable(success):
-#       return success(user_info, email)
-#     else:
-#       return redirect('/')
-#
-#   return make_oauth(app, name, config, _success, failure)
-
 module OmniAuth
   module Strategies
     class Bdu < OmniAuth::Strategies::OAuth2
@@ -37,17 +13,34 @@ module OmniAuth
         authorize_url: "https://courses.bigdatauniversity.com/oauth2/authorize",
         token_url:     "https://courses.bigdatauniversity.com/oauth2/access_token"
 
+      option :authorize_params, scope: "openid profile email"
+
+      # https://github.com/intridea/omniauth-oauth2/issues/32
+      option :provider_ignores_state, true
+
       # These are called after authentication has succeeded. If
       # possible, you should try to set the UID without making
       # additional calls (if the user id is returned with the token
       # or as a URI parameter). This may not be possible with all
       # providers.
-      uid { raw_info["id"] }
+
+      # Raw info: { "family_name"=>"...",
+      # "sub"=>"1ea...c61",
+      # "locale"=>"en",
+      # "preferred_username"=>"...",
+      # "given_name"=>"...", "email"=>"...",
+      # "name"=>"..."}
+
+      uid { raw_info["sub"] }
 
       info do
         {
-          name:  raw_info["name"],
-          email: raw_info["email"]
+          email:              raw_info["email"],
+          family_name:        raw_info["family_name"],
+          given_name:         raw_info["given_name"],
+          locale:             raw_info["locale"],
+          name:               raw_info["name"],
+          preferred_username: raw_info["preferred_username"]
         }
       end
 
@@ -58,7 +51,9 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get("/me").parsed
+        access_token.options[:mode] = :query
+        user_headers = { headers: { "Authorization" => "Bearer #{access_token.token}" } }
+        @raw_info ||= access_token.get("/oauth2/user_info", user_headers).parsed
       end
     end
   end
