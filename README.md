@@ -4,6 +4,8 @@
 Ruby authentication library. OmniAuth integrates transparently with Devise, 
 a popular Rails authentication solution.
 
+BDU is [Big Data University](https://courses.bigdatauniversity.com/).
+
 ## Usage with Devise
 
 Add this to your Gemfile:
