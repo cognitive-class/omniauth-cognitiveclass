@@ -6,10 +6,15 @@ Gem::Specification.new do |spec|
   spec.name          = "omniauth-cognitiveclass"
   spec.version       = File.open("VERSION", "r").read.strip
   spec.authors       = ["Leons Petrazickis"]
-  spec.email         = ["leonsp@ca.ibm.com"]
-  spec.summary       = "OAuth2 client for Big Data University"
-  spec.description   = spec.summary
-  spec.homepage      = "http://bigdatauniversity.com"
+  spec.email         = ["support@cognitiveclass.ai"]
+  spec.summary       = "CognitiveClass strategy for the Omniauth Oauth2 Ruby library "
+  spec.description   = "`omniauth-cognitiveclass` is a strategy (plugin or extension) for OmniAuth,
+                        which is a Ruby authentication library. OmniAuth integrates transparently
+                        with Devise, a popular Rails authentication solution.
+
+                        [Cognitive Class](https://courses.cognitiveclass.ai/) is also known as Big
+                        Data University. It's based on the OpenEdx platform"
+  spec.homepage      = "https://github.com/cognitiveclass/omniauth-cognitiveclass"
   spec.license       = "MIT"
 
   # TODO: Remove dependency on git
