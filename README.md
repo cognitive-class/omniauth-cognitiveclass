@@ -30,12 +30,14 @@ export COGNITIVE_TOKEN_URL="https://courses.cognitiveclass.ai/oauth2/access_toke
 
 export COGNITIVE_ID="..."
 export COGNITIVE_SECRET="..."
+
+export MY_ORIGIN="http://example.com:3000"
 ```
 
 Add this to your `config/initializers/devise.rb`:
 
 ```ruby
-callback_url = "http://#{ENV.fetch('ATELIER_HOST')}:#{ENV.fetch('ATELIER_PORT')}/users/auth/bdu/callback"
+callback_url = "#{ENV.fetch('MY_ORIGIN')}}/users/auth/bdu/callback"
 
 config.omniauth :cognitive_class, ENV.fetch("COGNITIVE_ID"), ENV.fetch("COGNITIVE_SECRET"),
   callback_url:           callback_url,
