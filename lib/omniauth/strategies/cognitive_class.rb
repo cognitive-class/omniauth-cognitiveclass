@@ -2,9 +2,9 @@ require "omniauth-oauth2"
 
 module OmniAuth
   module Strategies
-    class Bdu < OmniAuth::Strategies::OAuth2
+    class CognitiveClass < OmniAuth::Strategies::OAuth2
       # Give your strategy a name.
-      option :name, "bdu"
+      option :name, "cognitive_class"
 
       # This is where you pass the options you would pass when
       # initializing your consumer from the OAuth gem.

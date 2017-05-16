@@ -3,14 +3,14 @@ lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name          = "omniauth-bdu"
+  spec.name          = "omniauth-cognitiveclass"
   spec.version       = File.open("VERSION", "r").read.strip
   spec.authors       = ["Leons Petrazickis"]
   spec.email         = ["leonsp@ca.ibm.com"]
   spec.summary       = "OAuth2 client for Big Data University"
   spec.description   = spec.summary
   spec.homepage      = "http://bigdatauniversity.com"
-  spec.license       = "Nonstandard"
+  spec.license       = "MIT"
 
   # TODO: Remove dependency on git
   spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)

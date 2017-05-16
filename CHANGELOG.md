@@ -1,13 +1,11 @@
-# Omniauth-Bdu changelog
+# Change Log
+All notable changes to this project will be documented in this file.
 
-## 0.3.17
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
 
-*   Actually works
+## [Unreleased]
 
-## 0.3.0
-
-*   Provider ignores state
-
-## 0.2.0
-
-*   Class name changed from `BDU` to `Bdu`
+## [0.4.0] - 2017-05-16
+### Changed
+-   Gem renamed to `omniauth-cognitiveclass` and open sourced
