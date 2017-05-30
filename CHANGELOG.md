@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.3][] - 2017-05-30
+### Fixed
+-   Fixed some `require` issues
+
 ## [0.4.2] - 2017-05-17
 ### Fixed
 -   Correctly use the `COGNITIVE_SITE`, `COGNITIVE_AUTHORIZE_URL`, and

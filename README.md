@@ -37,11 +37,14 @@ export MY_ORIGIN="http://example.com:3000"
 Add this to your `config/initializers/devise.rb`:
 
 ```ruby
+require "omniauth_cognitive_class"
+
 callback_url = "#{ENV.fetch('MY_ORIGIN')}}/users/auth/bdu/callback"
 
 config.omniauth :cognitive_class, ENV.fetch("COGNITIVE_ID"), ENV.fetch("COGNITIVE_SECRET"),
   callback_url:           callback_url,
-  provider_ignores_state: true
+  provider_ignores_state: true,
+  strategy_class:         OmniAuth::Strategies::CognitiveClass
 ```
 
 Follow the other steps from the [Devise OmniAuth Guide](https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview).

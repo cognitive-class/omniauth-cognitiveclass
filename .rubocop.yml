@@ -4,8 +4,10 @@
 AllCops:
   # Include gemspec and Rakefile
   Include:
+    - '**/Gemfile'
     - '**/Rakefile'
     - '**/*.jbuilder'
+    - '*.gemspec'
   Exclude:
     - 'bin/rails'
     - 'bin/rake'
@@ -17,7 +19,7 @@ AllCops:
     - 'secure_rails'
     - 'test/**/*'
     - 'tmp/**/*'
-    
+
 Rails:
   Enabled: true
 

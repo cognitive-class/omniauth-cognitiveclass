@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-cognitiveclass (0.4.2)
+    omniauth-cognitiveclass (0.4.3)
       omniauth-oauth2 (~> 1.4)
 
 GEM

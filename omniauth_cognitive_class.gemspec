@@ -2,6 +2,8 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
+require "omniauth"
+
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-cognitiveclass"
   spec.version       = File.open("VERSION", "r").read.strip
@@ -17,11 +19,12 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/cognitiveclass/omniauth-cognitiveclass"
   spec.license       = "MIT"
 
-  # TODO: Remove dependency on git
-  spec.files         = `git ls-files`.split($INPUT_RECORD_SEPARATOR)
+  spec.files         = %x(git ls-files).split($INPUT_RECORD_SEPARATOR)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
+
+  spec.extra_rdoc_files = ["README.md"]
 
   # To install the gem locally:
   # bundle exec rake install
